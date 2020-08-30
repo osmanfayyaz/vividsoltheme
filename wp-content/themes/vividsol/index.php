@@ -1,4 +1,4 @@
-    <?php get_header();?>
+        <?php get_header();?>
         
         <?php if(have_posts()) { ?>
             <?php while(have_posts()) { ?>
@@ -11,8 +11,10 @@
             <div>
                 Posted on 
                 <a href="<?php echo get_permalink() ?>">
-                <time><?php echo get_the_date()?></time>
+                <time datetime="<?php echo get_the_date('c') ?>"><?php echo get_the_date();?></time>
                 </a>
+                By <a href="<?php echo get_author_posts_url(get_the_author_meta("ID"))?>">
+                <?php echo get_the_author(); ?></a>
             </div>
             <?php } ?>
     <?php } else { ?>
