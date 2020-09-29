@@ -1,4 +1,8 @@
-        <?php get_header();?>
+        <?php
+        include_once('function.php');
+         get_header();
+         ?>
+    
         
         <?php if(have_posts()) { ?>
             <?php while(have_posts()) { ?>
@@ -9,21 +13,13 @@
                 </a>
             </h2>
             <div>
-                Posted on 
-                <a href="<?php echo get_permalink() ?>">
-                <time datetime="<?php echo get_the_date('c') ?>">
-                <?php echo get_the_date();?></time>
-                </a>
-                By <a href="<?php echo get_author_posts_url(get_the_author_meta("ID"))?>">
-                <?php echo get_the_author(); ?></a>
+                <?php vividsoltheme_post_meta(); ?>
             </div>
             <div>
             <?php the_excerpt(  )?>
             </div>
-            <a href="<?php the_permalink() ?>" title="<?php the_title_attribute(); ?>">
-                   Read More <span class="u-screen-reader-text">About <?php the_title()?></span>
-                </a>
-                <?php } ?>
+           <?php vividsoltheme_read_more(); ?>
+           <?php } ?>
                 <?php the_posts_pagination(); ?>
     <?php } else { ?>
     <p>sorry nothing match the criteria</p>
