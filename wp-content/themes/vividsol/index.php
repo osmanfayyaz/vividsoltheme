@@ -1,9 +1,7 @@
         <?php
         include_once('function.php');
          get_header();
-         ?>
-    
-        
+         ?>     
         <?php if(have_posts()) { ?>
             <?php while(have_posts()) { ?>
             <?php the_post(); ?>
@@ -21,8 +19,25 @@
            <?php vividsoltheme_read_more(); ?>
            <?php } ?>
                 <?php the_posts_pagination(); ?>
-    <?php } else { ?>
-    <p>sorry nothing match the criteria</p>
+    <?php } 
+    else { ?>
+    <h1><?php esc_html_e('sorry nothing match the criteria','Vividsol'); ?></h1>
     <?php } ?>
+
+    <?php  
+
+    $city='Lahore';
+    echo esc_html__( 'Your city is ', 'Vividsol' ).$city;
+    printf(
+        /* translators %s is the city name */
+        esc_html__( 'Your city is %s', 'firstname'),
+        $city
+
+    );
+        // $comments=3;
+        // printf(_n('One comment','%s comments: ',$comments,'Vividsol'),$comments);
+        // // printf('this post have %s comments ', $comments);
+        // _ex('Post','verb','Vividsol');
+    ?>
 
     <?php get_footer(); ?>
